@@ -42,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List toDoList = [
-    ["Make Tutorial", false],
-    ["Study", false]
+    // ["Make Tutorial", false],
+    // ["Study", false]
   ];
 
   void SaveNewTask() {
@@ -66,6 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
+
+    void deleteTask(int index) {
+      setState(() {
+        toDoList.removeAt(index);
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
         ),
         floatingActionButton: FloatingActionButton(
+            shape: CircleBorder(),
             child: Icon(Icons.add), onPressed: creteNewTask),
         body: ListView.builder(
           itemCount: toDoList.length,
@@ -89,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               taskName: toDoList[index][0],
               value: toDoList[index][1],
               onChanged: (value) => checkBoxChanged(value, index),
+              deleteFunction:(context) => deleteTask(index),
             );
           },
         ));
