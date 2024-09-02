@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo_app/components/dialog_box.dart';
 import 'package:todo_app/components/todo_tile.dart';
 import 'package:todo_app/data/database.dart';
+import 'package:todo_app/theme/theme.dart';
 
 void main() async {
   // init the hive
@@ -24,10 +25,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ToDo App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: lightmode,
+      darkTheme: darkmode,
       home: MyHomePage(),
     );
   }
@@ -113,11 +112,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
           elevation: 2,
           shadowColor: Colors.black,
-          backgroundColor: Colors.grey[200],
+          backgroundColor: Theme.of(context).colorScheme.primary,
           title: const Text(
             "ToDO App",
             style: TextStyle(fontSize: 15),

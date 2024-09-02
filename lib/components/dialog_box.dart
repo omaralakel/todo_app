@@ -19,9 +19,13 @@ class DialogBox extends StatelessWidget {
           children: [
             TextField(
               controller: controller,
+               maxLength: 40,
               decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 145, 145, 145))),
                 hintText: "Your task here",
+                focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Color.fromARGB(255, 145, 145, 145), width: 2.0),
+    ),
                 ),
             ),
             const SizedBox(height: 30,),
@@ -38,7 +42,7 @@ class DialogBox extends StatelessWidget {
           ],
         ),
       ),
-      backgroundColor: Colors.grey[250],
+      backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
 }

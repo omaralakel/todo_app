@@ -14,7 +14,7 @@ class DialogButton extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Text(text),
       ),
-      color: Colors.grey[300],
+      color: Theme.of(context).colorScheme.secondary,
     );
   }
 }
